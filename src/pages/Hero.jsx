@@ -7,7 +7,7 @@ import {
   Rocket, PawPrint, Sparkles,
 } from "lucide-react";
 import { motion } from "framer-motion";
-
+import Categories from "./Categories";
 const iconVariants = {
   float: {
     y: [0, -10, 0],
@@ -55,19 +55,19 @@ const Hero = () => {
           icon: <Brush size={32} />,
           title: "Web Development",
           description: "Learn how to build modern, responsive websites using HTML, CSS, JavaScript, and popular frameworks like React and Vue.",
-          image: "https://img.freepik.com/free-photo/website-development-concept_23-2150400627.jpg"
+          image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5eH2V8OKWHpH-1U2KbS0KSfPGG1ESHjx_FA&s"
         },
         {
           icon: <Camera size={32} />,
           title: "Design & UI/UX",
           description: "Master the art of design thinking, prototyping, and creating user-friendly interfaces using tools like Figma and Adobe XD.",
-          image: "https://img.freepik.com/free-photo/creative-design-desktop_23-2147792360.jpg"
+          image: "https://enozom.com/wp-content/uploads/2024/04/mobile-app-design-fundamentals-the-difference-between-UI-and-UX.webp"
         },
         {
           icon: <MagnetIcon size={32} />,
           title: "AI & ML Basics",
           description: "Explore the fundamentals of Artificial Intelligence and Machine Learning using Python and real-world datasets.",
-          image: "https://img.freepik.com/free-photo/ai-chip-concept-background_23-2149396098.jpg"
+          image: "https://miro.medium.com/v2/resize:fit:1400/1*PTXHpPJ4rrDKqhSiVBGHMA.png"
         }
       ].map((item, i) => (
         <div
@@ -129,7 +129,7 @@ const Hero = () => {
         animate="float"
       >
         <img
-          src="https://img.freepik.com/free-photo/kids-programming-robot_23-2148776321.jpg"
+          src="https://codakid.com/wp-content/uploads/2023/05/scratch.png"
           alt="Kids learning"
           className="w-full h-80 object-cover"
         />
@@ -183,7 +183,7 @@ const Hero = () => {
     </div>
   </div>
 </section>
-
+<Categories/>
 {/* WHY CHOOSE US */}
 <section className="bg-white py-20 px-6">
   <div className="max-w-6xl mx-auto text-center">

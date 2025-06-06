@@ -1,56 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { supabase } from "../supabase";
-import { useNavigate, Link } from "react-router-dom";
-import { PawPrint, Dog, Star, Heart, Moon, Sparkles, Rocket, ShieldCheck, CheckCircle, Activity } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
-const categories = [
-  {
-    name: "Basic Training",
-    icon: <Dog className="w-10 h-10 text-yellow-400" />,
-    description: "Basic obedience and commands for your dog.",
-  },
-  {
-    name: "Behavior Problems",
-    icon: <ShieldCheck className="w-10 h-10 text-yellow-400" />,
-    description: "Solving issues with aggression, barking, and fears.",
-  },
-  {
-    name: "Agility",
-    icon: <Activity className="w-10 h-10 text-yellow-400" />,
-    description: "Competition preparation and agility exercises.",
-  },
-  {
-    name: "Nutrition & Health",
-    icon: <Star className="w-10 h-10 text-yellow-400" />,
-    description: "Nutrition, vitamins, and maintaining your pet's health.",
-  },
-  {
-    name: "Puppy Care",
-    icon: <Heart className="w-10 h-10 text-yellow-400" />,
-    description: "Caring for and raising puppies from day one.",
-  },
-  {
-    name: "Advanced Tricks",
-    icon: <Sparkles className="w-10 h-10 text-yellow-400" />,
-    description: "Learning advanced tricks and commands.",
-  },
-];
-
-
-const containerVariants = {
+const cardVariants = {
   hidden: { opacity: 0, y: 30 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { staggerChildren: 0.15 },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 },
+  visible: { opacity: 1, y: 0 },
 };
 
 const Categories = () => {
@@ -58,118 +14,97 @@ const Categories = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-  const [showCategories, setShowCategories] = useState(false);
-  useEffect(() => {
-    if (inView) setShowCategories(true);
-    else setShowCategories(false);
-  }, [inView]);
-  
+
   useEffect(() => {
     async function fetchArticles() {
-      const { data } = await supabase
-        .from("dogstraining_articles")
+      const { data, error } = await supabase
+        .from("lernfree_articles")
         .select("*")
         .order("published_date", { ascending: false })
         .limit(6);
+
+      if (error) {
+        console.error("Error fetching articles:", error);
+        setLoading(false);
+        return;
+      }
+
       if (data) setArticles(data);
       setLoading(false);
     }
     fetchArticles();
   }, []);
 
-  const handleCategoryClick = (categoryName) => {
-    navigate(`/articles?category=${encodeURIComponent(categoryName)}`);
-  };
-
   return (
-    <section ref={ref} className="relative py-20 bg-[#f8f1e7]">
-      {/* --- Статьи --- */}
-      <div className="max-w-6xl mx-auto px-4 mb-20">
-        <h4 className="text-3xl font-semibold text-[#4B2E2E] mb-8 text-center">
-          Featured Articles
-        </h4>
+    <section
+      ref={ref}
+      className="relative py-20 bg-gradient-to-tr from-[#a0e9fd] via-[#3abff8] to-[#0a7ac2]
+"
+    >
+      <div className="max-w-6xl mx-auto px-6 mb-20">
+ 
         {loading ? (
-          <p className="text-center text-[#7E6A52]">Loading articles...</p>
+          <p className="text-center text-[#9e8a6f] text-lg">Loading articles...</p>
         ) : (
-          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+          <motion.div
+            className="grid gap-12 sm:grid-cols-2"
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            transition={{ staggerChildren: 0.15 }}
+          >
             {articles.map((article) => (
-              <Link
-                to="/articles"
+              <motion.div
                 key={article.id}
-                className="relative group bg-white border-2 border-[#D6C8B8] rounded-3xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col cursor-pointer"
+                variants={cardVariants}
+                whileHover={{ scale: 1.03 }}
+                className="flex flex-col sm:flex-row bg-white rounded-3xl shadow-xl border border-transparent hover:border-yellow-400 transition-all duration-500 cursor-pointer overflow-hidden"
               >
-                <span className="absolute top-4 right-4 text-[#D6C8B8] opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse select-none text-3xl">
-                  🐾
-                </span>
+                {/* Картинка слева */}
+                <div className="sm:w-1/2 h-48 sm:h-auto overflow-hidden rounded-l-3xl">
+                  <img
+                    src={article.image}
+                    alt={article.title}
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  />
+                </div>
 
-                <img
-                  src={article.image}
-                  alt={article.title}
-                  className="w-full h-44 object-cover rounded-t-3xl"
-                />
-                <div className="p-6 flex flex-col flex-grow">
-                  <h2 className="text-2xl font-bold text-[#3E2C23] mb-3 transition-colors group-hover:text-[#A57C55]">
+                {/* Текст справа */}
+                <div className="p-6 flex flex-col justify-between sm:w-1/2">
+                  <h3 className="text-2xl font-semibold text-[#4a3b14] mb-3 leading-tight">
                     {article.title}
-                  </h2>
-                  <p className="text-[#7A6A5A] text-base mb-4 line-clamp-3">
+                  </h3>
+                  <p className="text-[#7a6f58] text-base mb-6 line-clamp-4">
                     {article.summary}
                   </p>
-                  <div className="mt-auto text-sm text-[#A57C55] flex justify-between items-center">
-                    <span>🕒 {article.reading_time} min</span>
+
+                  <div className="flex justify-between items-center text-sm text-[#b68e24] font-medium tracking-wide select-none">
+                    <span>🕒 {article.reading_time} min read</span>
                     <span>
                       📅 {new Date(article.published_date).toLocaleDateString()}
                     </span>
                   </div>
                 </div>
-              </Link>
+
+                {/* Иконка «блестка» в правом верхнем углу карточки */}
+                <span className="absolute top-4 right-4 text-yellow-400 text-4xl select-none pointer-events-none drop-shadow-lg animate-pulse">
+                  ✨
+                </span>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         )}
 
-        <div className="text-center mt-10">
-          <button
+        <div className="text-center mt-16">
+          <motion.button
             onClick={() => navigate("/articles")}
-            className="px-6 py-3 bg-gradient-to-r from-[#b16b3b] to-[#6a3d12] text-white rounded-full font-semibold hover:from-[#a05c32] hover:to-[#573107] transition duration-300 shadow-lg hover:shadow-xl"
+            className="px-8 py-3 bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-400 text-white rounded-full font-semibold shadow-lg hover:shadow-2xl transition-all duration-400"
+            whileHover={{ scale: 1.1, boxShadow: "0 0 15px rgba(255,182,36,0.8)" }}
+            whileTap={{ scale: 0.95 }}
           >
-            Show more
-          </button>
+            Show More
+          </motion.button>
         </div>
       </div>
-
-      <AnimatePresence mode="wait">
-  {showCategories && (
-    <motion.div
-      key="categories"
-      initial="hidden"
-      animate="show"
-      exit="hidden"
-      variants={containerVariants}
-      className="max-w-6xl mx-auto px-6"
-    >
-      <h3 className="text-4xl font-serif italic text-[#4B2E2E] mb-12 text-center">
-        Dog Training Categories
-      </h3>
-
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
-        {categories.map((cat, idx) => (
-          <motion.div
-            key={cat.name}
-            variants={itemVariants}
-            whileHover={{ scale: 1.05, y: -5 }}
-            whileTap={{ scale: 0.95 }}
-            className="cursor-pointer bg-gradient-to-br from-[#4B2E2E] to-[#6A3D12] rounded-3xl p-8 shadow-lg text-white flex flex-col items-center text-center transition-shadow hover:shadow-2xl"
-            onClick={() => handleCategoryClick(cat.name)}
-          >
-            <div className="mb-5">{cat.icon}</div>
-            <h4 className="text-2xl font-semibold">{cat.name}</h4>
-            <p className="mt-3 text-sm">{cat.description}</p>
-          </motion.div>
-        ))}
-      </div>
-    </motion.div>
-  )}
-</AnimatePresence>
-
     </section>
   );
 };
