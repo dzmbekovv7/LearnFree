@@ -24,27 +24,28 @@ const sectionVariant = {
 
 const teamMembers = [
   {
-    name: "Alex Johnson",
-    role: "CEO & Founder",
+    name: "Sophie Lee",
+    role: "Product Manager",
     description:
-      "Visionary leader with over 10 years in tech entrepreneurship. Passionate about building innovative products that change the world.",
-    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+      "Driven by user empathy and cross-functional collaboration, Sophie ensures every product meets real user needs.",
+    avatar: "https://randomuser.me/api/portraits/women/68.jpg",
   },
   {
-    name: "Mia Chen",
-    role: "Lead Designer",
+    name: "James Brown",
+    role: "Software Engineer",
     description:
-      "Creative genius behind our sleek and user-friendly designs. Expert in UX/UI and branding with a keen eye for detail.",
-    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+      "Full-stack developer with a passion for clean code and powerful architecture that scales.",
+    avatar: "https://randomuser.me/api/portraits/men/70.jpg",
   },
   {
-    name: "Liam Smith",
-    role: "CTO",
+    name: "Emily Davis",
+    role: "Marketing Lead",
     description:
-      "Tech wizard driving our engineering efforts. Specializes in scalable architectures and cutting-edge technologies.",
-    avatar: "https://randomuser.me/api/portraits/men/65.jpg",
+      "Strategist and storyteller. Emily crafts campaigns that connect, convert, and delight.",
+    avatar: "https://randomuser.me/api/portraits/women/21.jpg",
   },
 ];
+
 
 const AboutPage = () => {
   return (
@@ -200,9 +201,144 @@ const AboutPage = () => {
           </div>
         </motion.div>
       </section>
+{/* Section 1: Innovation */}
+<section className="py-20 bg-white">
+  <motion.h2
+    className="text-4xl font-bold text-center text-indigo-800 mb-16"
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    variants={sectionVariant}
+    custom={18}
+  >
+    How We Work
+  </motion.h2>
+  <div className="max-w-4xl mx-auto space-y-12 relative border-l-2 border-indigo-200 pl-6">
+    {[
+      { icon: "🔍", title: "Research & Discovery", desc: "We dive deep into your domain to understand users, competition, and your unique value." },
+      { icon: "🎨", title: "Design & Prototype", desc: "We create beautiful, intuitive interfaces and test them early with prototypes." },
+      { icon: "🧱", title: "Development", desc: "Our engineers build robust solutions with modern tools, following best practices." },
+      { icon: "🚀", title: "Launch & Iterate", desc: "We deploy, monitor, and continuously improve the product based on feedback." },
+    ].map((step, i) => (
+      <motion.div
+        key={i}
+        className="flex items-start gap-6"
+        variants={sectionVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        custom={19 + i}
+      >
+        <div className="text-2xl">{step.icon}</div>
+        <div>
+          <h3 className="font-semibold text-lg text-indigo-900">{step.title}</h3>
+          <p className="text-gray-600">{step.desc}</p>
+        </div>
+      </motion.div>
+    ))}
+  </div>
+</section>
+<section className="py-20 bg-indigo-50">
+  <motion.h2
+    className="text-4xl font-bold text-center text-indigo-900 mb-16"
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    variants={sectionVariant}
+    custom={23}
+  >
+    Our Impact in Numbers
+  </motion.h2>
+  <div className="grid grid-cols-1 md:grid-cols-4 gap-10 max-w-6xl mx-auto text-center">
+    {[
+      { number: "120+", label: "Projects Delivered" },
+      { number: "98%", label: "Client Satisfaction" },
+      { number: "30+", label: "Team Members" },
+      { number: "10", label: "Industries Served" },
+    ].map((stat, i) => (
+      <motion.div
+        key={i}
+        className="bg-white p-6 rounded-xl shadow-lg"
+        variants={sectionVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        custom={24 + i}
+      >
+        <div className="text-4xl font-bold text-indigo-700">{stat.number}</div>
+        <p className="text-gray-600 mt-2">{stat.label}</p>
+      </motion.div>
+    ))}
+  </div>
+</section>
+<section className="py-20 bg-white">
+  <motion.h2
+    className="text-4xl font-bold text-center text-indigo-800 mb-10"
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    variants={sectionVariant}
+    custom={30}
+  >
+    What We Believe
+  </motion.h2>
+  <div className="overflow-x-auto no-scrollbar px-4">
+    <div className="flex gap-6 w-max">
+      {[
+        "Great design is invisible but impactful.",
+        "Technology should amplify human potential.",
+        "Teamwork is the foundation of innovation.",
+        "Always stay curious and keep improving.",
+      ].map((quote, i) => (
+        <motion.div
+          key={i}
+          className="bg-indigo-100 text-indigo-900 rounded-2xl p-6 min-w-[300px] shadow-md"
+          variants={sectionVariant}
+
+          whileInView="visible"
+          viewport={{ once: true }}
+          custom={31 + i}
+        >
+          “{quote}”
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
+<section
+  className="relative bg-fixed bg-cover bg-center py-32"
+  style={{
+    backgroundImage:
+      "url(https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=1600&q=80)",
+  }}
+>
+  <div className="bg-black/60 absolute inset-0" />
+  <motion.div
+    className="relative z-10 max-w-3xl mx-auto text-center text-white"
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    variants={sectionVariant}
+    custom={40}
+  >
+    <h2 className="text-4xl font-bold mb-4">Join Our Journey</h2>
+    <p className="text-lg mb-6">
+      Be part of something big. Let’s create the future, together.
+    </p>
+    <a
+      href="/contact"
+      className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-6 rounded-full shadow-lg transition"
+    >
+      Contact Us
+    </a>
+  </motion.div>
+</section>
+
+
+
 
       {/* Vision с цитатой и картинкой */}
-      <section className="bg-indigo-900 text-white py-20 px-6 rounded-3xl max-w-5xl mx-auto relative overflow-hidden shadow-lg">
+      <section className="bg-indigo-900 mt-[10px] gtext-white py-20 px-6 rounded-3xl max-w-5xl mx-auto relative overflow-hidden shadow-lg">
         <motion.h2
           className="text-4xl font-semibold text-center mb-10 drop-shadow-md"
           initial="hidden"
