@@ -18,9 +18,10 @@ const sectionVariant = {
   visible: (i) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.3, duration: 0.8 },
+    transition: { delay: Math.min(i * 0.2, 1), duration: 0.6 },
   }),
 };
+
 
 const teamMembers = [
   {
@@ -63,8 +64,10 @@ const AboutPage = () => {
       <section className="relative text-white py-20 px-6 max-w-5xl mt-[20px] mx-auto bg-gradient-to-r from-indigo-700 via-indigo-900 to-purple-900 rounded-3xl shadow-lg overflow-hidden">
         <motion.h1
           className="text-5xl font-extrabold mb-10 tracking-wide drop-shadow-lg"
-          initial="hidden"
-          animate="visible"
+        initial="hidden"
+whileInView="visible"
+viewport={{ once: false, amount: 0.3 }}
+
           variants={sectionVariant}
           custom={0}
         >
@@ -73,8 +76,10 @@ const AboutPage = () => {
 
         <motion.div
           className="flex flex-col md:flex-row items-center gap-10"
-          initial="hidden"
-          animate="visible"
+        initial="hidden"
+whileInView="visible"
+viewport={{ once: false, amount: 0.3 }}
+
           variants={sectionVariant}
           custom={1}
         >
@@ -98,8 +103,10 @@ const AboutPage = () => {
       <section className="py-20 px-6 bg-gray-50">
         <motion.h2
           className="text-4xl font-semibold text-center mb-12 text-indigo-900"
-          initial="hidden"
-          animate="visible"
+        initial="hidden"
+whileInView="visible"
+viewport={{ once: false, amount: 0.3 }}
+
           variants={sectionVariant}
           custom={2}
         >
@@ -107,8 +114,10 @@ const AboutPage = () => {
         </motion.h2>
         <motion.ul
           className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10"
-          initial="hidden"
-          animate="visible"
+        initial="hidden"
+whileInView="visible"
+viewport={{ once: false, amount: 0.3 }}
+
           variants={sectionVariant}
           custom={3}
         >
@@ -155,8 +164,10 @@ const AboutPage = () => {
       <section className="py-20 px-6 max-w-5xl mx-auto">
         <motion.h2
           className="text-4xl font-semibold text-center mb-12"
-          initial="hidden"
-          animate="visible"
+        initial="hidden"
+whileInView="visible"
+viewport={{ once: false, amount: 0.3 }}
+
           variants={sectionVariant}
           custom={4}
         >
@@ -164,8 +175,10 @@ const AboutPage = () => {
         </motion.h2>
         <motion.div
           className="grid grid-cols-1 md:grid-cols-3 gap-12 text-gray-800 text-lg"
-          initial="hidden"
-          animate="visible"
+        initial="hidden"
+whileInView="visible"
+viewport={{ once: false, amount: 0.3 }}
+
           variants={sectionVariant}
           custom={5}
         >
@@ -340,9 +353,11 @@ const AboutPage = () => {
       {/* Vision с цитатой и картинкой */}
       <section className="bg-indigo-900 mt-[10px] gtext-white py-20 px-6 rounded-3xl max-w-5xl mx-auto relative overflow-hidden shadow-lg">
         <motion.h2
-          className="text-4xl font-semibold text-center mb-10 drop-shadow-md"
-          initial="hidden"
-          animate="visible"
+          className="text-4xl text-white font-semibold text-center mb-10 drop-shadow-md"
+        initial="hidden"
+whileInView="visible"
+viewport={{ once: false, amount: 0.3 }}
+
           variants={sectionVariant}
           custom={6}
         >
@@ -350,8 +365,10 @@ const AboutPage = () => {
         </motion.h2>
         <motion.div
           className="flex flex-col md:flex-row items-center gap-12 max-w-4xl mx-auto"
-          initial="hidden"
-          animate="visible"
+        initial="hidden"
+whileInView="visible"
+viewport={{ once: false, amount: 0.3 }}
+
           variants={sectionVariant}
           custom={7}
         >
@@ -365,7 +382,7 @@ const AboutPage = () => {
               “To create a future where technology and creativity blend seamlessly to
               empower every individual and organization to reach their fullest potential.”
             </p>
-            <p>
+            <p className="text-white">
               Our mission is to harness the power of innovation, design, and
               technology to build products that inspire transformation, break
               barriers, and open new horizons. We are committed to shaping a world
@@ -385,8 +402,10 @@ const AboutPage = () => {
       <section className="py-20 px-6 max-w-6xl mx-auto">
         <motion.h2
           className="text-4xl font-semibold text-center mb-16"
-          initial="hidden"
-          animate="visible"
+        initial="hidden"
+whileInView="visible"
+viewport={{ once: false, amount: 0.3 }}
+
           variants={sectionVariant}
           custom={8}
         >
@@ -394,8 +413,10 @@ const AboutPage = () => {
         </motion.h2>
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12"
-          initial="hidden"
-          animate="visible"
+        initial="hidden"
+whileInView="visible"
+viewport={{ once: false, amount: 0.3 }}
+
           variants={sectionVariant}
           custom={9}
         >
