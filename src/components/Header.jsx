@@ -12,7 +12,7 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import ScrollToTopButton from './ScrollToTop';
 
-const navItems = ["Home", "Articles", "Reviews", "Privacy", "About"];
+const navItems = ["Home", "Articles", "Reviews", "Privacy", "About", "FAQ"];
 const icons = [Cpu, Code2, CloudCog, MousePointerClick];
 const slogans = [
   "IT is life.",
@@ -60,78 +60,122 @@ const Header = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-6 flex items-center justify-between relative z-50">
-        {/* Logo and Title */}
-        <div className="relative flex items-center space-x-3">
+  {/* Logo and Title */}
+  <motion.div
+    className="relative flex items-center space-x-3"
+    initial={{ y: -10, opacity: 0 }}
+    animate={{ y: 0, opacity: 1 }}
+    transition={{ duration: 1 }}
+  >
+    <motion.div
+      initial={{ rotate: -15, opacity: 0 }}
+      animate={{ rotate: 0, opacity: 1 }}
+      transition={{ duration: 1 }}
+    >
+      <Cpu className="text-blue-600 w-8 h-8" />
+    </motion.div>
+
+    <div className='flex'>
+          {/* Animated Neon L */}
           <motion.div
-            initial={{ rotate: -15, opacity: 0 }}
-            animate={{ rotate: 0, opacity: 1 }}
-            transition={{ duration: 1 }}
-          >
-            <Cpu className="text-blue-600 w-8 h-8" />
-          </motion.div>
-          <motion.h1
-            className="text-3xl md:text-4xl font-bold text-blue-700"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-          >
-            LearnItFree
-          </motion.h1>
-
-          {icons.map((Icon, index) => (
-            <motion.div
-              key={index}
-              className="absolute text-blue-400 opacity-70"
-              style={{
-                top: `${Math.random() * 40}px`,
-                left: `${Math.random() * 120}px`,
-              }}
-              animate={{
-                y: [0, -6, 0],
-                opacity: [0.7, 1, 0.7],
-                rotate: [0, 10, -10, 0],
-              }}
-              transition={{
-                duration: 4 + index,
-                repeat: Infinity,
-                delay: index * 0.4,
-              }}
-            >
-              <Icon className="w-4 h-4 md:w-5 md:h-5" />
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Nav Links */}
-        <nav className="hidden md:flex space-x-6 text-base">
-          {navItems.map((item, index) => (
-            <Link
-              key={index}
-              to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-              className="text-gray-700 hover:text-blue-600 transition relative group"
-            >
-              {item}
-              <span className="block h-[2px] w-0 group-hover:w-full bg-blue-600 transition-all duration-300"></span>
-            </Link>
-          ))}
-        </nav>
-
-        {/* Contact Button */}
-        <Link
-          to="/contact"
-          className="hidden md:inline-block border border-blue-600 text-blue-600 rounded-full px-4 py-2 hover:bg-blue-50 transition"
+          className="text-6xl md:text-6xl font-black text-blue-500 drop-shadow-[0_0_15px_rgba(59,130,246,0.8)]"
+          initial={{ scale: 0.8, rotate: -15, opacity: 0 }}
+          animate={{ scale: 1.05, rotate: 0, opacity: 1 }}
+          transition={{
+            type: "spring",
+            stiffness: 200,
+            damping: 10,
+            duration: 1.5,
+          }}
         >
-          Contact
-        </Link>
-
-        {/* Burger Button */}
-        <button
-          className="md:hidden text-blue-700 z-50"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
-        </button>
+          L
+        </motion.div>
+        <div>
+      <motion.h1
+        className="text-3xl mt-[20px] md:text-4xl font-bold text-blue-700"
+        initial={{ opacity: 0, y: -5 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+      >
+        earnItFree
+      </motion.h1>
+      <motion.p
+        className="text-sm text-gray-500 mt-1"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 1 }}
+      >
+        Free resources to level up your coding skills
+      </motion.p>
       </div>
+    </div>
+
+    {icons.map((Icon, index) => (
+      <motion.div
+        key={index}
+        className="absolute text-blue-400 opacity-70"
+        style={{
+          top: `${Math.random() * 40}px`,
+          left: `${Math.random() * 120}px`,
+        }}
+        animate={{
+          y: [0, -6, 0],
+          opacity: [0.7, 1, 0.7],
+          rotate: [0, 10, -10, 0],
+        }}
+        transition={{
+          duration: 4 + index,
+          repeat: Infinity,
+          delay: index * 0.4,
+        }}
+      >
+        <Icon className="w-4 h-4 md:w-5 md:h-5" />
+      </motion.div>
+    ))}
+  </motion.div>
+
+  {/* Nav Links */}
+  <nav className="hidden md:flex space-x-6 text-base">
+    {navItems
+      .filter(item => item !== "About")
+      .map((item, index) => (
+        <Link
+          key={index}
+          to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
+          className="text-blue-500 hover:text-blue-900 transition relative group"
+        >
+          {item}
+          <span className="block h-[2px] w-0 group-hover:w-full bg-blue-600 transition-all duration-300"></span>
+        </Link>
+      ))}
+  </nav>
+
+  {/* About & Contact Buttons */}
+  <div className="hidden md:flex space-x-3">
+    <Link
+      to="/about"
+      className="relative px-4 py-2 rounded-full text-white bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 transition-shadow shadow-lg hover:shadow-xl"
+    >
+      <span className="relative z-10">About</span>
+      <span className="absolute inset-0 rounded-full bg-blue-500 opacity-20 blur-lg"></span>
+    </Link>
+    <Link
+      to="/contact"
+      className="border border-blue-600 text-blue-600 rounded-full px-4 py-2 hover:bg-blue-50 transition"
+    >
+      Contact
+    </Link>
+  </div>
+
+  {/* Burger Button */}
+  <button
+    className="md:hidden text-blue-700 z-50"
+    onClick={() => setIsOpen(!isOpen)}
+  >
+    {isOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+  </button>
+</div>
+
 
       {/* Mobile Menu */}
       <motion.div
