@@ -5,28 +5,29 @@ import { Quote } from "lucide-react";
 const students = [
   {
     id: 1,
-    name: "Anna S.",
-    course: "Frontend Development",
-    thoughts: "Thanks to this course, I built my first React app and feel confident starting my career!",
-    avatar: "https://randomuser.me/api/portraits/women/65.jpg",
-    style: "bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-white",
+    name: "Diana K.",
+    course: "Mobile App Development",
+    thoughts: "Creating cross-platform apps was easier than I expected — now I’m building my own projects!",
+    avatar: "https://randomuser.me/api/portraits/women/76.jpg",
+    style: "bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 text-white",
   },
   {
     id: 2,
-    name: "Michael T.",
-    course: "Data Science",
-    thoughts: "The hands-on projects made complex concepts easy to understand and apply.",
-    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
-    style: "bg-white border-4 border-blue-400 text-blue-900",
+    name: "Ethan R.",
+    course: "AI & Machine Learning",
+    thoughts: "The real-world examples and model building helped me grasp ML much faster.",
+    avatar: "https://randomuser.me/api/portraits/men/45.jpg",
+    style: "bg-white border-4 border-green-400 text-green-900",
   },
   {
     id: 3,
-    name: "Sara L.",
-    course: "UX/UI Design",
-    thoughts: "Creative and practical — this course changed the way I think about user experience.",
-    avatar: "https://randomuser.me/api/portraits/women/29.jpg",
-    style: "bg-yellow-50 text-yellow-900 shadow-lg",
-  },
+    name: "Lina M.",
+    course: "Graphic Design",
+    thoughts: "Loved the projects! Now I have a full portfolio ready for freelance work.",
+    avatar: "https://randomuser.me/api/portraits/women/83.jpg",
+    style: "bg-pink-50 text-pink-900 shadow-md",
+  }
+  
 ];
 
 const reviews = [
@@ -46,13 +47,13 @@ const reviews = [
     id: 3,
     name: "Nina K.",
     comment: "Such a warm experience — I felt cared for every step of the way.",
-    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+    avatar: "https://randomuser.me/api/portraits/women/12.jpg",
   },
   {
     id: 4,
     name: "James P.",
     comment: "Results speak for themselves. I will definitely come back!",
-    avatar: "https://randomuser.me/api/portraits/men/45.jpg",
+    avatar: "https://randomuser.me/api/portraits/men/47.jpg",
   },
   {
     id: 5,
