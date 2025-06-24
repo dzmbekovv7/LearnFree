@@ -64,9 +64,7 @@ const AboutPage = () => {
       <section className="relative text-white py-20 px-6 max-w-5xl mt-[20px] mx-auto bg-gradient-to-r from-indigo-700 via-indigo-900 to-purple-900 rounded-3xl shadow-lg overflow-hidden">
         <motion.h1
           className="text-5xl font-extrabold mb-10 tracking-wide drop-shadow-lg"
-        initial="hidden"
-whileInView="visible"
-viewport={{ once: false, amount: 0.3 }}
+
 
           variants={sectionVariant}
           custom={0}
@@ -76,9 +74,7 @@ viewport={{ once: false, amount: 0.3 }}
 
         <motion.div
           className="flex flex-col md:flex-row items-center gap-10"
-        initial="hidden"
-whileInView="visible"
-viewport={{ once: false, amount: 0.3 }}
+
 
           variants={sectionVariant}
           custom={1}
@@ -103,9 +99,7 @@ viewport={{ once: false, amount: 0.3 }}
       <section className="py-20 px-6 bg-gray-50">
         <motion.h2
           className="text-4xl font-semibold text-center mb-12 text-indigo-900"
-        initial="hidden"
-whileInView="visible"
-viewport={{ once: false, amount: 0.3 }}
+
 
           variants={sectionVariant}
           custom={2}
@@ -114,9 +108,7 @@ viewport={{ once: false, amount: 0.3 }}
         </motion.h2>
         <motion.ul
           className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10"
-        initial="hidden"
-whileInView="visible"
-viewport={{ once: false, amount: 0.3 }}
+
 
           variants={sectionVariant}
           custom={3}
@@ -164,9 +156,7 @@ viewport={{ once: false, amount: 0.3 }}
       <section className="py-20 px-6 max-w-5xl mx-auto">
         <motion.h2
           className="text-4xl font-semibold text-center mb-12"
-        initial="hidden"
-whileInView="visible"
-viewport={{ once: false, amount: 0.3 }}
+
 
           variants={sectionVariant}
           custom={4}
@@ -175,9 +165,7 @@ viewport={{ once: false, amount: 0.3 }}
         </motion.h2>
         <motion.div
           className="grid grid-cols-1 md:grid-cols-3 gap-12 text-gray-800 text-lg"
-        initial="hidden"
-whileInView="visible"
-viewport={{ once: false, amount: 0.3 }}
+
 
           variants={sectionVariant}
           custom={5}
@@ -237,7 +225,7 @@ viewport={{ once: false, amount: 0.3 }}
         key={i}
         className="flex items-start gap-6"
         variants={sectionVariant}
-        initial="hidden"
+
         whileInView="visible"
         viewport={{ once: true }}
         custom={19 + i}
@@ -273,7 +261,7 @@ viewport={{ once: false, amount: 0.3 }}
         key={i}
         className="bg-white p-6 rounded-xl shadow-lg"
         variants={sectionVariant}
-        initial="hidden"
+
         whileInView="visible"
         viewport={{ once: true }}
         custom={24 + i}
@@ -354,9 +342,7 @@ viewport={{ once: false, amount: 0.3 }}
       <section className="bg-indigo-900 mt-[10px] gtext-white py-20 px-6 rounded-3xl max-w-5xl mx-auto relative overflow-hidden shadow-lg">
         <motion.h2
           className="text-4xl text-white font-semibold text-center mb-10 drop-shadow-md"
-        initial="hidden"
-whileInView="visible"
-viewport={{ once: false, amount: 0.3 }}
+
 
           variants={sectionVariant}
           custom={6}
@@ -365,9 +351,7 @@ viewport={{ once: false, amount: 0.3 }}
         </motion.h2>
         <motion.div
           className="flex flex-col md:flex-row items-center gap-12 max-w-4xl mx-auto"
-        initial="hidden"
-whileInView="visible"
-viewport={{ once: false, amount: 0.3 }}
+
 
           variants={sectionVariant}
           custom={7}
@@ -402,9 +386,7 @@ viewport={{ once: false, amount: 0.3 }}
       <section className="py-20 px-6 max-w-6xl mx-auto">
         <motion.h2
           className="text-4xl font-semibold text-center mb-16"
-        initial="hidden"
-whileInView="visible"
-viewport={{ once: false, amount: 0.3 }}
+
 
           variants={sectionVariant}
           custom={8}
@@ -413,9 +395,7 @@ viewport={{ once: false, amount: 0.3 }}
         </motion.h2>
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12"
-        initial="hidden"
-whileInView="visible"
-viewport={{ once: false, amount: 0.3 }}
+
 
           variants={sectionVariant}
           custom={9}

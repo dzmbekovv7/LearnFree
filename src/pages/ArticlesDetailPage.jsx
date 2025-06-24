@@ -143,7 +143,7 @@ const AshleyArticleDetailPage = () => {
               className="w-full md:w-1/2 rounded-lg object-cover border border-blue-600 shadow-lg"
             />
             <div className="flex flex-col justify-between">
-              <h1 className="text-5xl font-extrabold mb-4">{article.title}</h1>
+              <h1 className="text-3xl font-extrabold mb-4">{article.title}</h1>
               <div className="text-sm text-blue-700 space-y-1">
                 <p>🕒 {article.reading_time} min read</p>
                 <p>📅 {new Date(article.published_date).toLocaleDateString()}</p>

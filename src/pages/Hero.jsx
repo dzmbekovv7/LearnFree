@@ -31,7 +31,7 @@ const Hero = () => {
       Join our vibrant community of learners and industry experts. Access top-quality resources, hands-on projects, and mentorship that empowers you to achieve your career goals in the world of tech.
     </p>
     <Link
-      to="/more"
+      to="/articles"
       className="inline-block bg-yellow-400 text-black font-semibold py-3 px-8 rounded-full hover:bg-yellow-500 transition duration-300 shadow-md"
     >
       Learn More
@@ -116,7 +116,7 @@ const Hero = () => {
           ))}
         </div>
         <Link
-          to="/kids"
+          to="/articles"
           className="inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-6 rounded-full transition duration-300 shadow-md"
         >
           Learn More
@@ -175,7 +175,7 @@ const Hero = () => {
         ))}
       </div>
       <Link
-        to="/adults"
+        to="/articles"
         className="inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-6 rounded-full transition duration-300 shadow-md"
       >
         Learn More

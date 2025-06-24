@@ -119,7 +119,6 @@ function App() {
           <Route path="/introduction" element={<AnimatedPage><Introduction /></AnimatedPage>} />
           <Route path="/contact" element={<AnimatedPage><Contact /></AnimatedPage>} />
           <Route path="/reviews" element={<AnimatedPage><ReviewsPage /></AnimatedPage>} />
-          <Route path='/FAQ' element={<AnimatedPage><FAQ/></AnimatedPage>}></Route>
           <Route path="/articles" element={<AnimatedPage><AshleyArticlesPage /></AnimatedPage>} />
           <Route path="/articles/:slug" element={<AnimatedPage><AshleyArticleDetailPage /></AnimatedPage>} />
           <Route path="/type/:typename" element={<AnimatedPage><CategoryArticlesPage /></AnimatedPage>} />

@@ -12,7 +12,7 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import ScrollToTopButton from './ScrollToTop';
 
-const navItems = ["Home", "Articles", "Reviews", "Privacy", "About", "FAQ"];
+const navItems = ["Home", "Articles", "Reviews", "Privacy", "About"];
 const icons = [Cpu, Code2, CloudCog, MousePointerClick];
 const slogans = [
   "IT is life.",

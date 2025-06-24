@@ -77,7 +77,7 @@ const DogsTrainingPage = () => {
             />
             <div>
               <p className="font-semibold">{article.author}</p>
-              <p className="text-xs text-gray-500">⏱ {article.reading_time} min</p>
+              <p className="text-xs text-gray-500">⏱ {article.reading_time}</p>
               <p className="text-xs text-gray-400">{new Date(article.published_date).toLocaleDateString()}</p>
             </div>
           </div>
